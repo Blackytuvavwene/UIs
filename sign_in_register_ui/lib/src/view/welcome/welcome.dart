@@ -60,13 +60,13 @@ class _WelcomeState extends State<Welcome> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.12,
+              height: size.height * 0.13,
             ),
             Stack(
               alignment: AlignmentDirectional.center,
               children: [
                 Container(
-                  height: size.height * 0.1,
+                  height: size.height * 0.08,
                   width: size.width * 0.9,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
@@ -74,7 +74,7 @@ class _WelcomeState extends State<Welcome> {
                   ),
                 ),
                 SizedBox(
-                  height: size.height * 0.1,
+                  height: size.height * 0.08,
                   width: size.width * 0.9,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

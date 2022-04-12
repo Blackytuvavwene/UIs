@@ -63,97 +63,25 @@ class _SignInState extends State<SignIn> {
             ),
             Form(
               child: ListView(
+                padding: EdgeInsets.only(
+                  left: size.width * 0.05,
+                  right: size.width * 0.05,
+                ),
                 shrinkWrap: true,
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                      ),
-                    ),
+                  const _MyTextField(
+                    hint: 'Phone, email or username',
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                          color: AppColor.appGrey,
-                          width: 1,
-                        ),
+                  SizedBox(
+                    height: size.width * 0.05,
+                  ),
+                  _MyTextField(
+                    hint: 'Password',
+                    obscureIcon: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.remove_red_eye,
+                        color: AppColor.appGrey,
                       ),
                     ),
                   ),
@@ -161,7 +89,7 @@ class _SignInState extends State<SignIn> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.05,
+              height: size.height * 0.25,
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -189,7 +117,7 @@ class _SignInState extends State<SignIn> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.05,
+              height: size.height * 0.03,
             ),
             Center(
               child: ElevatedButton(
@@ -211,6 +139,89 @@ class _SignInState extends State<SignIn> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _MyTextField extends StatelessWidget {
+  const _MyTextField({
+    Key? key,
+    this.hint,
+    this.obscureIcon,
+    this.controller,
+    this.height,
+    this.width,
+  }) : super(key: key);
+  final String? hint;
+  final Widget? obscureIcon;
+  final TextEditingController? controller;
+  final double? height;
+  final double? width;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height,
+      width: width,
+      child: TextFormField(
+        style: const TextStyle(
+          fontSize: 16,
+          color: AppColor.appGrey,
+        ),
+        decoration: InputDecoration(
+          labelText: hint,
+          labelStyle: const TextStyle(
+            fontSize: 16,
+            color: AppColor.appGrey,
+          ),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(1),
+            child: obscureIcon,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColor.appGrey,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColor.appGrey,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColor.appGrey,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColor.appGrey,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColor.appGrey,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(
+              color: AppColor.appGrey,
+              width: 1,
+            ),
+          ),
         ),
       ),
     );
